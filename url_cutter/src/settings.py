@@ -29,7 +29,6 @@ DEBUG = config('DEBUG', default = False, cast= bool)
 
 ALLOWED_HOSTS = ['url-cutter-92.herokuapp.com', 'localhost:8000', '127.0.0.1']
 
-
 # Application definition
 
 INSTALLED_APPS = [
