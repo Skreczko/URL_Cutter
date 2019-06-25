@@ -13,17 +13,17 @@ class CutUrl(models.Model):
 		return f'{self.url_path} into {self.url_cutted}'
 
 
-def check_url_cutted(instance):
+def check_url_for_cutted(instance):
 	new_url_cutted = ''.join(random.choice(str(random.randint(0,10)) + string.ascii_uppercase + string.ascii_lowercase) for x in range(5))
 	qs = CutUrl.objects.filter(url_cutted=new_url_cutted)
-	# if qs.exists():
-	# 	return check_url_cutted(instance)
+	if qs.exists():
+		return check_url_for_cutted(instance)
 	return new_url_cutted
 
 
 def pre_save_CutUrl(instance, sender, *args, **kwargs):
 	if not instance.url_cutted:
-		instance.url_cutted = check_url_cutted(instance)
+		instance.url_cutted = check_url_for_cutted(instance)
 
 
 pre_save.connect(pre_save_CutUrl, sender=CutUrl)
