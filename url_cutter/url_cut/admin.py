@@ -1,3 +1,16 @@
 from django.contrib import admin
+from .models import CutUrl
 
-# Register your models here.
+
+class CutUrlAdmin(admin.ModelAdmin):
+	list_display = ['url_path', 'url_cutted']
+	readonly_fields = ['url_cutted']
+	# ordering = ['url_path']
+	list_per_page = 50
+
+
+	class Meta:
+		model = CutUrl
+
+
+admin.site.register(CutUrl, CutUrlAdmin)
