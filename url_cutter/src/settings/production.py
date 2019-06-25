@@ -29,7 +29,7 @@ if not settings.DEBUG:
 	# SECURITY WARNING: don't run with debug turned on in production!
 	DEBUG = False
 
-	ALLOWED_HOSTS = ['url-cutter-92.herokuapp.com']
+	ALLOWED_HOSTS = ['url-cutter-92.herokuapp.com', '*']
 
 	# Application definition
 
