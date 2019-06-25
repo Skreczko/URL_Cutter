@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default = False, cast= bool)
 
-ALLOWED_HOSTS = ['urlcutter92.herokuapp.com', 'localhost:8000', '127.0.0.1']
+ALLOWED_HOSTS = ['url-cutter-92.herokuapp.com', 'localhost:8000', '127.0.0.1']
 
 
 # Application definition
@@ -82,8 +82,9 @@ WSGI_APPLICATION = 'src.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-default_dburl = 'sqlite://' + os.path.join(BASE_DIR, 'db.sqlite3')
+default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl),}
+
 
 
 
