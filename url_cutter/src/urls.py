@@ -25,5 +25,6 @@ urlpatterns = [
     path('<link>/', redirect_by_short_url, name='cutted'),
 ]
 
+
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
