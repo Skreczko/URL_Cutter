@@ -14,8 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
+from url_cut.views import CutUrlCreateView, CutUrlDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', CutUrlCreateView.as_view(), name='base_html'),
+    path('<link>/', CutUrlDetailView.as_view(), name='cutted'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
