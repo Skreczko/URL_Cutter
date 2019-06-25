@@ -85,12 +85,13 @@ WSGI_APPLICATION = 'src.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': '8_URL_CUTTER',
         'USER': 'postgres',
         'PASSWORD': config('POSTGRESQL_PASSWORD'),
         'HOST': '127.0.0.1',
         'PORT': '5432',
+		'CONN_MAX_AGE': 500,
     }
 }
 import dj_database_url
