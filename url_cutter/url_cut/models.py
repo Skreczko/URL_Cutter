@@ -7,7 +7,7 @@ from .validators import validate_url_path
 
 class CutUrl(models.Model):
 	url_path = models.CharField(max_length=512, validators=[validate_url_path], verbose_name='URL to cut')
-	url_cutted = models.CharField(max_length=8)
+	url_cutted = models.CharField(max_length=5)
 
 	def __str__(self):
 		return f'{self.url_path} into {self.url_cutted}'
@@ -24,5 +24,6 @@ def check_url_cutted(instance):
 def pre_save_CutUrl(instance, sender, *args, **kwargs):
 	if not instance.url_cutted:
 		instance.url_cutted = check_url_cutted(instance)
+
 
 pre_save.connect(pre_save_CutUrl, sender=CutUrl)

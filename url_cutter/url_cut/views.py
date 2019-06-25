@@ -11,7 +11,7 @@ class CutUrlCreateView(SuccessMessageMixin, CreateView):
 	model = CutUrl
 	template_name = "form.html"
 	form_class = CutUrlForm
-	success_message = "%(full)s \t is your link"
+	success_message = "%(full)s"
 
 	def get_success_url(self):
 		return reverse("base_html")
