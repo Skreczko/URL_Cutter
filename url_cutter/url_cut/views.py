@@ -1,10 +1,9 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
+from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from .forms import CutUrlForm
 from .models import CutUrl
 from django.views.generic.edit import CreateView
-from django.views.generic.detail import DetailView
 from django.contrib.messages.views import SuccessMessageMixin
 # Create your views here.
 
@@ -25,8 +24,8 @@ class CutUrlCreateView(SuccessMessageMixin, CreateView):
 		)
 
 
-class CutUrlDetailView(DetailView):
-	model = CutUrl
+def redirect_by_short_url(request, link):
+	object_url = get_object_or_404(CutUrl, url_cutted=link).url_path
+	return redirect(object_url)
 
-	def get(self, request, *args, **kwargs):
-		pass
+

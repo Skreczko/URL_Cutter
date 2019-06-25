@@ -17,12 +17,12 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
-from url_cut.views import CutUrlCreateView, CutUrlDetailView
+from url_cut.views import CutUrlCreateView, redirect_by_short_url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', CutUrlCreateView.as_view(), name='base_html'),
-    path('<link>/', CutUrlDetailView.as_view(), name='cutted'),
+    path('<link>/', redirect_by_short_url, name='cutted'),
 ]
 
 if settings.DEBUG:
