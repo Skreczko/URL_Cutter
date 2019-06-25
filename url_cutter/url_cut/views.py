@@ -19,13 +19,13 @@ class CutUrlCreateView(SuccessMessageMixin, CreateView):
 	def get_success_message(self, cleaned_data):
 		return self.success_message % dict(
 			cleaned_data,
-			url_cutted=self.object.url_cutted,
-			full=self.request.build_absolute_uri(reverse("cutted", kwargs={'link':self.object.url_cutted}))
+			urlcutted=self.object.urlcutted,
+			full=self.request.build_absolute_uri(reverse("cutted", kwargs={'link':self.object.urlcutted}))
 		)
 
 
 def redirect_by_short_url(request, link):
-	object_url = get_object_or_404(CutUrl, url_cutted=link).url_path
-	return redirect(object_url)
+	objecturl = get_object_or_404(CutUrl, urlcutted=link).urlpath
+	return redirect(objecturl)
 
 

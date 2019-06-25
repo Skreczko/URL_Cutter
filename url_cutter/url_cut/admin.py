@@ -3,8 +3,8 @@ from .models import CutUrl
 
 
 class CutUrlAdmin(admin.ModelAdmin):
-	list_display = ['url_path', 'url_cutted']
-	readonly_fields = ['url_cutted']
+	list_display = ['urlpath', 'urlcutted']
+	readonly_fields = ['urlcutted']
 	list_per_page = 50
 
 
