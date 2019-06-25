@@ -6,7 +6,7 @@ from .validators import validate_url_path
 # Create your models here.
 
 class CutUrl(models.Model):
-	url_path = models.CharField(max_length=512, validators=[validate_url_path])
+	url_path = models.CharField(max_length=512, validators=[validate_url_path], verbose_name='URL to cut')
 	url_cutted = models.CharField(max_length=8)
 
 	def __str__(self):
