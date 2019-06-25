@@ -1,12 +1,12 @@
 import random, string
 from django.db.models.signals import pre_save
 from django.db import models
-
+from .validators import validate_url_path
 
 # Create your models here.
 
 class CutUrl(models.Model):
-	url_path = models.CharField(max_length=512)
+	url_path = models.CharField(max_length=512, validators=[validate_url_path])
 	url_cutted = models.CharField(max_length=8)
 
 	def __str__(self):
