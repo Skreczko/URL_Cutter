@@ -96,11 +96,11 @@ WSGI_APPLICATION = 'src.wsgi.application'
 # }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd9rs4i5difobiq',
-        'USER': 'eqvbgxednophna',
-        'PASSWORD': '3ccc1c220afc650a534caa9bc9468a6a5403fe450ba19874fba6d7a15c4fbbb6',
-        'HOST': 'ec2-54-243-208-234.compute-1.amazonaws.com',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'uqcsjker',
+        'USER': 'uqcsjker',
+        'PASSWORD': 'PZPSEhZuSq-66_p7W1dm_pLKVuTlu4Ml',
+        'HOST': 'balarama.db.elephantsql.com',
         'PORT': '5432',
 		'CONN_MAX_AGE': 500,
     }
