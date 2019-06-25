@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 from decouple import config
-from dj_database_url import parse as dburl
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -83,17 +82,8 @@ WSGI_APPLICATION = 'src.wsgi.application'
 
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': '8_URL_CUTTER',
-#         'USER': 'postgres',
-#         'PASSWORD': config('POSTGRESQL_PASSWORD'),
-#         'HOST': '127.0.0.1',
-#         'PORT': '5432',
-# 		'CONN_MAX_AGE': 500,
-#     }
-# }
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -102,12 +92,22 @@ DATABASES = {
         'PASSWORD': 'PZPSEhZuSq-66_p7W1dm_pLKVuTlu4Ml',
         'HOST': 'balarama.db.elephantsql.com',
         'PORT': '5432',
-		'CONN_MAX_AGE': 500,
+        'CONN_MAX_AGE': 500,
     }
 }
-# import dj_database_url
-#
-# DATABASES['default'] =  dj_database_url.config(default=os.getenv('DATABASE_URL'))
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': '8_URL_CUTTER',
+#         'USER': 'postgres',
+#         'PASSWORD': config('POSTGRESQL_PASSWORD'),
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#         'CONN_MAX_AGE': 500,
+#     }
+# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -146,7 +146,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+# ]
