@@ -15,9 +15,9 @@ class CutUrl(models.Model):
 
 def check_url_for_cutted(instance):
 	new_url_cutted = ''.join(random.choice(str(random.randint(0,10)) + string.ascii_uppercase + string.ascii_lowercase) for x in range(5))
-	qs = CutUrl.objects.filter(url_cutted=new_url_cutted)
-	if qs.exists():
-		return check_url_for_cutted(instance)
+	# qs = CutUrl.objects.filter(url_cutted=new_url_cutted)
+	# if qs.exists():
+	# 	return check_url_for_cutted(instance)
 	return new_url_cutted
 
 
